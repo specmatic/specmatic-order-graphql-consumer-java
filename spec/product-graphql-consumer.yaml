@@ -75,8 +75,6 @@ paths:
         examples:
           SUCCESS:
             value: gadget
-          TIMEOUT:
-            value: other
       - name: pageSize
         in: header
         schema:

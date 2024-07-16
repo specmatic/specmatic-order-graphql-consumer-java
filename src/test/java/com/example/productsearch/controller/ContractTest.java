@@ -18,7 +18,7 @@ public class ContractTest implements SpecmaticContractTest {
         System.setProperty("port", "8070");
 
         ArrayList<String> stubDirectories = new ArrayList<>() {{
-            add("src/test/resources/examples");
+            add("src/test/resources/specmatic/graphql/examples");
         }};
 
         graphQLStub = GraphQLStub.createGraphQLStub(stubDirectories, "localhost", 8080);
