@@ -8,7 +8,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>in.specmatic</groupId>
   <artifactId>specmatic-graphql</artifactId>
-  <version>0.0.5-TRIAL</version>
+  <version>0.0.6-TRIAL</version>
   <name>Specmatic GraphQL</name>
   <description>Specmatic support for GraphQL</description>
   <url>https://specmatic.in</url>
