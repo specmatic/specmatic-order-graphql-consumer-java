@@ -1,0 +1,219 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "in.specmatic",
+    "module": "specmatic-graphql",
+    "version": "0.0.5-TRIAL",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.5"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.24"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "specmatic-graphql-0.0.5-TRIAL.jar",
+          "url": "specmatic-graphql-0.0.5-TRIAL.jar",
+          "size": 263224,
+          "sha512": "1ae3447fa80a7aa985759fbc163b1d880c9671dd7bb07994dfd9d1cd6b98927ef42c9ebbd2e98271812fde874877e73cd0047f845b3236762ae62aa8de752727",
+          "sha256": "820991a07afd27d5bc6a6d20bef33f2d5cede2d5ad8f0d65fb6da2ec4898e90b",
+          "sha1": "7557b921b16ec9bc855dfdf9c73c8b49647cb33a",
+          "md5": "eca220f7af108cffda032bc0d3540087"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 17,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "in.specmatic",
+          "module": "junit5-support",
+          "version": {
+            "requires": "1.3.36"
+          }
+        },
+        {
+          "group": "com.graphql-java",
+          "module": "graphql-java",
+          "version": {
+            "requires": "22.0"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-core-jvm",
+          "version": {
+            "requires": "2.3.11"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-cio-jvm",
+          "version": {
+            "requires": "2.3.11"
+          }
+        },
+        {
+          "group": "io.ktor",
+          "module": "ktor-client-content-negotiation",
+          "version": {
+            "requires": "2.3.11"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-serialization-json-jvm",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "org.junit.jupiter",
+          "module": "junit-jupiter-api",
+          "version": {
+            "requires": "5.10.2"
+          }
+        },
+        {
+          "group": "org.assertj",
+          "module": "assertj-core",
+          "version": {
+            "requires": "3.25.3"
+          }
+        },
+        {
+          "group": "info.picocli",
+          "module": "picocli",
+          "version": {
+            "requires": "4.7.6"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.core",
+          "module": "jackson-databind",
+          "version": {
+            "requires": "2.12.5"
+          }
+        },
+        {
+          "group": "com.fasterxml.jackson.module",
+          "module": "jackson-module-kotlin",
+          "version": {
+            "requires": "2.12.5"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.24"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "specmatic-graphql-0.0.5-TRIAL.jar",
+          "url": "specmatic-graphql-0.0.5-TRIAL.jar",
+          "size": 263224,
+          "sha512": "1ae3447fa80a7aa985759fbc163b1d880c9671dd7bb07994dfd9d1cd6b98927ef42c9ebbd2e98271812fde874877e73cd0047f845b3236762ae62aa8de752727",
+          "sha256": "820991a07afd27d5bc6a6d20bef33f2d5cede2d5ad8f0d65fb6da2ec4898e90b",
+          "sha1": "7557b921b16ec9bc855dfdf9c73c8b49647cb33a",
+          "md5": "eca220f7af108cffda032bc0d3540087"
+        }
+      ]
+    },
+    {
+      "name": "shadowRuntimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "shadowed",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "specmatic-graphql-0.0.5-TRIAL-all.jar",
+          "url": "specmatic-graphql-0.0.5-TRIAL-all.jar",
+          "size": 53907344,
+          "sha512": "12cfef246561bfc9ded3d40392403ea69c318f743e64aa46473ff16763852d3e9543c389cbfe50a5513dcd3d2cb9ffdd9d8fb1ccb0673a582a2a52fa0dbe401d",
+          "sha256": "1f3be21e0a269eaa404b6df184bd4cc3cc0c153cb81000dce1e2329aa85f08a7",
+          "sha1": "e8d221d37f3440c377ce7ece228f4f35e2e2fab6",
+          "md5": "8f8be28b8c780bcf13719dad0d4e6600"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "specmatic-graphql-0.0.5-TRIAL-javadoc.jar",
+          "url": "specmatic-graphql-0.0.5-TRIAL-javadoc.jar",
+          "size": 261,
+          "sha512": "29ff7e14a38b808d5104ce13a833ac5ff02247ec833855b6052ced720d9afa0c9a734914637c4ea0a6d96b5684eeaeddb4c30ce11df150af433217698c17a1b5",
+          "sha256": "11781cc8dc78787417f3356cc0be0c6d0cad899193ba203edc28f3d829ad9b92",
+          "sha1": "4d20ea25fa2c3b88796ad1d4fccc2da0eaba2fe3",
+          "md5": "77c518f1df83fc5ebd35f31d8f561c76"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "specmatic-graphql-0.0.5-TRIAL-sources.jar",
+          "url": "specmatic-graphql-0.0.5-TRIAL-sources.jar",
+          "size": 38091,
+          "sha512": "05288a63aa0ba635fe21abc378dfbd3748228564558d6fa4c8905339f1be54387526ed73b29782f8fe94ad01f023d0aa3429d14ba95d03f5d6a9fb95dac209ca",
+          "sha256": "b06f6a5888cb01eb1d5a64f8b2d6ed55433bc3a7258af0de6e0eec0bc80b16a6",
+          "sha1": "0df96f236b40918e5142f793697c99484129e124",
+          "md5": "a54ed22261408647f5748ab174a9511d"
+        }
+      ]
+    }
+  ]
+}
