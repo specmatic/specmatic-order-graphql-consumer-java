@@ -2,34 +2,20 @@
 
 # Specmatic UI project for GraphQL demo
 
-## Pre-requisites
-
-Install the node packages for this project.
+## Run the tests
 
 ```shell
-npm install
+./gradlew clean test
 ```
 
-## Start up the Specmatic stub
+Look at the `ContractTest` class to see how the GraphQL dependency has been stubbed out.
+
+### Start the application
+
+1. Checkout the Order API project from [here](https://github.com/znsio/specmatic-order-api-java), and start it up using the instructions in it's README. 
+2. Checkout the BFF project from [here](https://github.com/znsio/specmatic-order-bff-graphql-java), and start it up using the instructions in it's README.
+3. Execute this command:
 
 ```shell
-npm run specmatic:stub
+./gradlew bootRun
 ```
-
-## Start the application
-
-```shell
-npm start
-```
-
-This should automatically start the application and pull it up in your browser.
-
-## Explore the GraphQl spec using GraphiQL
-
-```shell
-npm run graphiql
-```
-
-You can now open [GraphiQL](http://localhost:4000/graphiql) in your browser and test out some GraphQL queries.
-
-This instance of GraphiQL has been setup to query the Specmatic stub instance running on http://localhost:4000/graphql.
