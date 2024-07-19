@@ -1,7 +1,7 @@
 package com.example.productsearch.controller;
 
-import in.specmatic.graphql.stub.GraphQLStub;
-import in.specmatic.test.SpecmaticContractTest;
+import io.specmatic.graphql.stub.GraphQLStub;
+import io.specmatic.test.SpecmaticContractTest;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.boot.test.context.SpringBootTest;
