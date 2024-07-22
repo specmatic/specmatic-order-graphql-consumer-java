@@ -2,6 +2,6 @@ sources:
   - provider: git
     repository: https://github.com/znsio/specmatic-order-contracts.git
     test:
-      - in/specmatic/examples/store/graphql-consumer-api_v1.yaml
+      - io/specmatic/examples/store/openapi/graphql_consumer_api_v1.yaml
     stub:
-      - in/specmatic/examples/store/products-bff-api.graphqls
+      - io/specmatic/examples/store/graphql/products_bff.graphqls
