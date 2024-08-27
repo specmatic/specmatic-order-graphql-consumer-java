@@ -6,7 +6,9 @@ import com.example.productsearch.model.OrderInput;
 import org.springframework.graphql.client.HttpGraphQlClient;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ProductService {
@@ -18,23 +20,34 @@ public class ProductService {
     }
 
     public List<Product> findAvailableProducts(String type, Integer pageSize) {
-        String query = String.format("""
-            query {
-                findAvailableProducts(type: %s, pageSize: %d) {
-                    id
-                    name
-                    inventory
-                    type
-                }
+        // Define the GraphQL query with variables
+        String query = """
+        query ($type: ProductType!, $pageSize: Int!) {
+            findAvailableProducts(type: $type, pageSize: $pageSize) {
+                id
+                name
+                inventory
+                type
             }
-            """, type, pageSize);
+        }
+    """;
 
-        return graphQlClient.document(query)
-                .retrieve("findAvailableProducts")
-                .toEntityList(Product.class)
-                .block();
+        // Define the variables map
+        Map<String, Object> variables = new HashMap<>();
+        variables.put("type", type);
+        variables.put("pageSize", pageSize);
+
+        // Configure and execute the GraphQL client
+        return graphQlClient
+                .mutate()
+                .header("X-region", "north-west")
+                .build()
+                .document(query)         // Pass the query
+                .variables(variables)    // Pass the variables map
+                .retrieve("findAvailableProducts")  // Specify the path to retrieve
+                .toEntityList(Product.class)  // Convert the result to a list of Products
+                .block();  // Block to wait for the result synchronously
     }
-
     public Integer createProduct(NewProductInput newProduct) {
         String mutation = String.format("""
             mutation {
