@@ -3,7 +3,7 @@
   "component": {
     "group": "io.specmatic",
     "module": "specmatic-graphql",
-    "version": "1.0.4-TRIAL",
+    "version": "1.0.5-TRIAL",
     "attributes": {
       "org.gradle.status": "release"
     }
@@ -36,13 +36,13 @@
       ],
       "files": [
         {
-          "name": "specmatic-graphql-1.0.4-TRIAL.jar",
-          "url": "specmatic-graphql-1.0.4-TRIAL.jar",
-          "size": 304773,
-          "sha512": "9de71c26d4227e3a84ff62536a4c0c8329fc14607076861c72e7c8556bdfa1a4b957803fac61c8556af296bb305d41912237c4ba4eec690441c0b4faa95df31b",
-          "sha256": "e760356c6850e6b921be14708a58456e89c8fc128dba72de4e8876aae52812eb",
-          "sha1": "ae8dfce86108bab74fe4d5c4ca3728892a013498",
-          "md5": "c24c91bb38c89ae5651fd050e12c81c8"
+          "name": "specmatic-graphql-1.0.5-TRIAL.jar",
+          "url": "specmatic-graphql-1.0.5-TRIAL.jar",
+          "size": 260976,
+          "sha512": "eb12423d6bea20a82fd1aff8e7221ff325fd903baf06c9d172b4a5e0be314f1534dcbbcec179831ce232bc52dfcf38020999ea4647aaeb8f5ade514b5eadd7a9",
+          "sha256": "647d460d20c9e75c392ec52a01dc890f7d790617e140b462b43992f83d8ddf9a",
+          "sha1": "e9efb5ca45f8dde775034f301da8c366bcb34beb",
+          "md5": "9b00fa9df0e2a7a31f90558273c7a019"
         }
       ]
     },
@@ -69,14 +69,14 @@
           "group": "io.specmatic",
           "module": "junit5-support",
           "version": {
-            "requires": "2.0.16"
+            "requires": "2.0.17"
           }
         },
         {
           "group": "io.specmatic",
           "module": "specmatic-executable",
           "version": {
-            "requires": "2.0.16"
+            "requires": "2.0.17"
           }
         },
         {
@@ -187,13 +187,13 @@
       ],
       "files": [
         {
-          "name": "specmatic-graphql-1.0.4-TRIAL.jar",
-          "url": "specmatic-graphql-1.0.4-TRIAL.jar",
-          "size": 304773,
-          "sha512": "9de71c26d4227e3a84ff62536a4c0c8329fc14607076861c72e7c8556bdfa1a4b957803fac61c8556af296bb305d41912237c4ba4eec690441c0b4faa95df31b",
-          "sha256": "e760356c6850e6b921be14708a58456e89c8fc128dba72de4e8876aae52812eb",
-          "sha1": "ae8dfce86108bab74fe4d5c4ca3728892a013498",
-          "md5": "c24c91bb38c89ae5651fd050e12c81c8"
+          "name": "specmatic-graphql-1.0.5-TRIAL.jar",
+          "url": "specmatic-graphql-1.0.5-TRIAL.jar",
+          "size": 260976,
+          "sha512": "eb12423d6bea20a82fd1aff8e7221ff325fd903baf06c9d172b4a5e0be314f1534dcbbcec179831ce232bc52dfcf38020999ea4647aaeb8f5ade514b5eadd7a9",
+          "sha256": "647d460d20c9e75c392ec52a01dc890f7d790617e140b462b43992f83d8ddf9a",
+          "sha1": "e9efb5ca45f8dde775034f301da8c366bcb34beb",
+          "md5": "9b00fa9df0e2a7a31f90558273c7a019"
         }
       ]
     },
@@ -207,13 +207,13 @@
       },
       "files": [
         {
-          "name": "specmatic-graphql-1.0.4-TRIAL-all.jar",
-          "url": "specmatic-graphql-1.0.4-TRIAL-all.jar",
-          "size": 73215284,
-          "sha512": "9deb6cd2f6749696ee1871e47663371db2abae8b78e870c2aa9982443eaccaee2a9ecb76b4e9e9c2f77f7b92d271cb80ef634e3e66fef47f3574413f6f366cbb",
-          "sha256": "18800c54b32a808a756e88f3c2781016fac22e9744599973ea66ec74283d3b5b",
-          "sha1": "8b254e7e1ed4034b9fe28025bd6f3e3a8d05f9c3",
-          "md5": "ee415b9ecedb41fd1857cb4b8158ee61"
+          "name": "specmatic-graphql-1.0.5-TRIAL-all.jar",
+          "url": "specmatic-graphql-1.0.5-TRIAL-all.jar",
+          "size": 73217972,
+          "sha512": "45554cf209c4463080ee11f820a5cdaf0064c4d719abdde142274132a13cf1ed39059509b79381c747b75075a779baf01faafb748344a20a76835af5688a0830",
+          "sha256": "f24901128353c87cce8cf265c08b49d318ba21ca085204245629e15b1bc12624",
+          "sha1": "4a80ceca9f573f39f7c38039a9b560599a85371a",
+          "md5": "756cf5b9c66212d1f4593e48f5e0ba2a"
         }
       ]
     },
@@ -227,13 +227,13 @@
       },
       "files": [
         {
-          "name": "specmatic-graphql-1.0.4-TRIAL-javadoc.jar",
-          "url": "specmatic-graphql-1.0.4-TRIAL-javadoc.jar",
+          "name": "specmatic-graphql-1.0.5-TRIAL-javadoc.jar",
+          "url": "specmatic-graphql-1.0.5-TRIAL-javadoc.jar",
           "size": 261,
-          "sha512": "096cbadd220831ad8f15a95a68f8607bf3c6c99bb43c94d279b139add80da28a5e41ecbf2bfde9d29486d655b9b3e9d8ef87e604e1a4d7ff0d2af89d9afa2a9e",
-          "sha256": "c4a8f435c00c709be66dc0cb7a907303acadad498fd832c407e4a3c1e846b02f",
-          "sha1": "0cf9ce7792e90b3cfae8db817325eb2aedd5c270",
-          "md5": "f2644e0e2e3bd959248a849d37331f74"
+          "sha512": "2737a9180fe98ead6de921a87837995e9a22b6dbc5769a7f71a2544f8d99cff522d0e2610dcbdc095c1265e7d807443d81b168990679623bd7f427229d81dd98",
+          "sha256": "db65da1b66bfa2372bbfe4ac1d718a83401a5731388134cc1c7cb318b992bcc3",
+          "sha1": "3a0dc59239f545ea918f1d27377e79bcb3cf07bf",
+          "md5": "06a7b5801d82670220584137bc703748"
         }
       ]
     },
@@ -247,13 +247,13 @@
       },
       "files": [
         {
-          "name": "specmatic-graphql-1.0.4-TRIAL-sources.jar",
-          "url": "specmatic-graphql-1.0.4-TRIAL-sources.jar",
-          "size": 43552,
-          "sha512": "3bfb9cd42156d023dd8ae9d9913ada104a3a28525ae9f17083a1570d61763e43d4dbeacba8e4b5fd04f4bff4f356349ac8cdc88e66b6e4d9c587fff203ff2ea7",
-          "sha256": "f9a2e30da0e09ea903450d93a4bb8c24fd0416d79e71277a5842abff1c885aed",
-          "sha1": "8fde3b5acb9e3997c6d4dc739e92dba8a25a0b7b",
-          "md5": "bcb8d248f2e5841ab9c57d90d6e2bfea"
+          "name": "specmatic-graphql-1.0.5-TRIAL-sources.jar",
+          "url": "specmatic-graphql-1.0.5-TRIAL-sources.jar",
+          "size": 43617,
+          "sha512": "282524bc1009a86d7b5d80008a158a2e179c4fee87e9f64c1a8cac88a2949004ad20382d07d80a95704a73682e278c1f51071bf29fda493357887ff56b2902ca",
+          "sha256": "bac2b915375b7a1ed22c707ae2b568619e6d822883671252339bc000930dbd31",
+          "sha1": "aceb92535959b8ee70d33ca50b340b7b9eb2b398",
+          "md5": "f4e05a077f0cb8a09cc39ed6cba8d181"
         }
       ]
     }

@@ -22,10 +22,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-graphql'
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
 
-    testImplementation 'io.specmatic:junit5-support:2.0.16'
+    testImplementation 'io.specmatic:junit5-support:2.0.17'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.graphql:spring-graphql-test'
-    testImplementation('io.specmatic:specmatic-graphql:1.0.4-TRIAL') {
+    testImplementation('io.specmatic:specmatic-graphql:1.0.5-TRIAL') {
         exclude group: 'io.specmatic', module: 'specmatic-executable'
     }
 }
