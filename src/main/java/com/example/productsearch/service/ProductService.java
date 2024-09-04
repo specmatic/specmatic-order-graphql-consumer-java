@@ -13,43 +13,17 @@ import java.util.Map;
 @Service
 public class ProductService {
 
-    private final HttpGraphQlClient graphQlClient;
-
-    public ProductService(HttpGraphQlClient graphQlClient) {
-        this.graphQlClient = graphQlClient;
-    }
-
-    public List<Product> findAvailableProducts(String type, Integer pageSize) {
-        // Define the GraphQL query with variables
-        String query = """
-        query ($type: ProductType!, $pageSize: Int!) {
-            findAvailableProducts(type: $type, pageSize: $pageSize) {
-                id
-                name
-                inventory
-                type
-            }
-        }
-    """;
-
-        // Define the variables map
-        Map<String, Object> variables = new HashMap<>();
-        variables.put("type", type);
-        variables.put("pageSize", pageSize);
-
-        // Configure and execute the GraphQL client
-        return graphQlClient
-                .mutate()
-                .header("X-region", "north-west")
-                .build()
-                .document(query)         // Pass the query
-                .variables(variables)    // Pass the variables map
-                .retrieve("findAvailableProducts")  // Specify the path to retrieve
-                .toEntityList(Product.class)  // Convert the result to a list of Products
-                .block();  // Block to wait for the result synchronously
-    }
-    public Integer createProduct(NewProductInput newProduct) {
-        String mutation = String.format("""
+    public static final String FIND_AVAILABLE_PRODUCTS = """
+                query ($type: ProductType!, $pageSize: Int!) {
+                    findAvailableProducts(type: $type, pageSize: $pageSize) {
+                        id
+                        name
+                        inventory
+                        type
+                    }
+                }
+            """;
+    public static final String CREATE_PRODUCT = """
             mutation {
                 createProduct(newProduct: {
                     name: "%s",
@@ -59,16 +33,8 @@ public class ProductService {
                     id
                 }
             }
-            """, newProduct.getName(), newProduct.getInventory(), newProduct.getType().toString());
-
-        return graphQlClient.document(mutation)
-                .retrieve("createProduct.id")
-                .toEntity(Integer.class)
-                .block();
-    }
-
-    public Integer createOrder(OrderInput orderInput) {
-        String mutation = String.format("""
+            """;
+    public static final String CREATE_ORDER = """
             mutation {
                 createOrder(order: {
                     productId: %d,
@@ -77,7 +43,41 @@ public class ProductService {
                     id
                 }
             }
-            """, orderInput.getProductId(), orderInput.getCount());
+            """;
+    private final HttpGraphQlClient graphQlClient;
+
+    public ProductService(HttpGraphQlClient graphQlClient) {
+        this.graphQlClient = graphQlClient;
+    }
+
+    public List<Product> findAvailableProducts(String type, Integer pageSize) {
+        String query = FIND_AVAILABLE_PRODUCTS;
+
+        Map<String, Object> variables = new HashMap<>();
+        variables.put("type", type);
+        variables.put("pageSize", pageSize);
+
+        return graphQlClient
+                .mutate()
+                .header("X-region", "north-west")
+                .build()
+                .document(query)
+                .variables(variables)
+                .retrieve("findAvailableProducts")
+                .toEntityList(Product.class)
+                .block();
+    }
+    public Integer createProduct(NewProductInput newProduct) {
+        String mutation = String.format(CREATE_PRODUCT, newProduct.getName(), newProduct.getInventory(), newProduct.getType().toString());
+
+        return graphQlClient.document(mutation)
+                .retrieve("createProduct.id")
+                .toEntity(Integer.class)
+                .block();
+    }
+
+    public Integer createOrder(OrderInput orderInput) {
+        String mutation = String.format(CREATE_ORDER, orderInput.getProductId(), orderInput.getCount());
 
         return graphQlClient.document(mutation)
                 .retrieve("createOrder.id")
