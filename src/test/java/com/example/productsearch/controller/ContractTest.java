@@ -10,18 +10,20 @@ import java.util.ArrayList;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class ContractTest implements SpecmaticContractTest {
+    public static final String APPLICATION_HOST = "localhost";
+    public static final String APPLICATION_PORT = "8070";
     private static GraphQLStub graphQLStub;
 
     @BeforeAll
     public static void beforeAll() {
-        System.setProperty("host", "localhost");
-        System.setProperty("port", "8070");
+        System.setProperty("host", APPLICATION_HOST);
+        System.setProperty("port", APPLICATION_PORT);
 
-        ArrayList<String> stubDirectories = new ArrayList<>() {{
+        ArrayList<String> examplesDirectoryList = new ArrayList<>() {{
             add("src/test/resources/specmatic/graphql/examples");
         }};
 
-        graphQLStub = GraphQLStub.createGraphQLStub(stubDirectories, "localhost", 8080);
+        graphQLStub = GraphQLStub.createGraphQLStub(examplesDirectoryList, APPLICATION_HOST, 8080);
     }
 
     @AfterAll

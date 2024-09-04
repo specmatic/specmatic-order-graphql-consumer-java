@@ -41,6 +41,11 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-
+### Idea ###
 .idea
+
+### Specmatic ###
 .specmatic
+
+### Others ###
+.java-version
