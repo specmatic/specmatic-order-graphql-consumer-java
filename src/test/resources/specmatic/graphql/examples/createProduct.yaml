@@ -1,0 +1,15 @@
+request:
+    body: |
+        mutation {
+            createProduct(newProduct: {
+                name: "The Almanac",
+                inventory: 10,
+                type: book
+            }) { id }
+        }
+
+response: |
+  {
+    "id": "10"
+  }
+
