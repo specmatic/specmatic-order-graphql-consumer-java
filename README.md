@@ -12,7 +12,7 @@
    - Start Docker Desktop
    - Start the graphql service stub using
      ```shell
-     docker run -v "$PWD/specmatic.yml:/usr/src/app/specmatic.yml" -v "$PWD/src/test/resources/specmatic/graphql/examples:/usr/src/app/examples" -p 8080:8080 znsio/specmatic-graphql-trial virtualize --port=8080 --examples=examples
+     docker run -v "$PWD/specmatic.yml:/usr/src/app/specmatic.yml" -v "$PWD/src/test/resources/specmatic/graphql/examples:/usr/src/app/examples" -p 8080:8080 znsio/specmatic-graphql virtualize --port=8080 --examples=examples
      ```
    - Run the application - `./gradlew bootRun`
    - Run the tests -
