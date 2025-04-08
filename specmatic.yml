@@ -1,5 +1,5 @@
-sources:
-  - provider: git
+contract_repositories:
+  - type: git
     repository: https://github.com/znsio/specmatic-order-contracts.git
     provides:
       - io/specmatic/examples/store/openapi/graphql_consumer_api_v1.yaml

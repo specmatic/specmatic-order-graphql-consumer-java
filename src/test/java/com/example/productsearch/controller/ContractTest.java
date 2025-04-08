@@ -1,5 +1,6 @@
 package com.example.productsearch.controller;
 
+import io.specmatic.graphql.VersionInfo;
 import io.specmatic.graphql.stub.GraphQLStub;
 import io.specmatic.test.SpecmaticContractTest;
 import org.junit.jupiter.api.AfterAll;
@@ -16,6 +17,7 @@ public class ContractTest implements SpecmaticContractTest {
 
     @BeforeAll
     public static void beforeAll() {
+        System.out.println("Testing using Specmatic GraphQL " + VersionInfo.INSTANCE.describe());
         System.setProperty("host", APPLICATION_HOST);
         System.setProperty("port", APPLICATION_PORT);
 
