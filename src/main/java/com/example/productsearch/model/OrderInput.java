@@ -1,8 +1,10 @@
 package com.example.productsearch.model;
 
+import jakarta.validation.constraints.NotNull;
+
 public class OrderInput {
-    private Integer productId;
-    private Integer count;
+    @NotNull private Integer productId;
+    @NotNull private Integer count;
 
     public Integer getProductId() {
         return productId;

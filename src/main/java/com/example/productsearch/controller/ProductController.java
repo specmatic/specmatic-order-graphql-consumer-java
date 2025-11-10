@@ -23,21 +23,22 @@ public class ProductController {
 
     @GetMapping("/findAvailableProducts")
     public ResponseEntity<List<Product>> findAvailableProducts(
-            @RequestParam(required = false) String type,
-            @RequestHeader(required = true) Integer pageSize) {
+            @RequestParam(required = true) String type,
+            @RequestHeader(required = false) Integer pageSize
+    ) {
         List<Product> products = productService.findAvailableProducts(type, pageSize);
         return ResponseEntity.ok(products);
     }
 
     @PostMapping("/products")
-    public ResponseEntity<Map<String, Integer>> createProduct(@Valid @RequestBody NewProductInput newProduct) {
-        Integer createdProductId = productService.createProduct(newProduct);
+    public ResponseEntity<Map<String, String>> createProduct(@Valid @RequestBody NewProductInput newProduct) {
+        String createdProductId = productService.createProduct(newProduct);
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("id", createdProductId));
     }
 
     @PostMapping("/orders")
-    public ResponseEntity<Map<String, Integer>> createOrder(@Valid @RequestBody OrderInput orderInput) {
-        Integer createdOrderId = productService.createOrder(orderInput);
+    public ResponseEntity<Map<String, String>> createOrder(@Valid @RequestBody OrderInput orderInput) {
+        String createdOrderId = productService.createOrder(orderInput);
         return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("id", createdOrderId));
     }
 }

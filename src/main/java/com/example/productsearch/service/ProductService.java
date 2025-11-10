@@ -14,7 +14,7 @@ import java.util.Map;
 public class ProductService {
 
     public static final String FIND_AVAILABLE_PRODUCTS = """
-                query ($type: ProductType!, $pageSize: Int!) {
+                query ($type: ProductType!, $pageSize: Int) {
                     findAvailableProducts(type: $type, pageSize: $pageSize) {
                         id
                         name
@@ -55,7 +55,7 @@ public class ProductService {
 
         Map<String, Object> variables = new HashMap<>();
         variables.put("type", type);
-        variables.put("pageSize", pageSize);
+        variables.put("pageSize", pageSize != null ? pageSize : 10); // Default to 10
 
         return graphQlClient
                 .mutate()
@@ -67,21 +67,19 @@ public class ProductService {
                 .toEntityList(Product.class)
                 .block();
     }
-    public Integer createProduct(NewProductInput newProduct) {
+    public String createProduct(NewProductInput newProduct) {
         String mutation = String.format(CREATE_PRODUCT, newProduct.getName(), newProduct.getInventory(), newProduct.getType().toString());
-
         return graphQlClient.document(mutation)
                 .retrieve("createProduct.id")
-                .toEntity(Integer.class)
+                .toEntity(String.class)
                 .block();
     }
 
-    public Integer createOrder(OrderInput orderInput) {
+    public String createOrder(OrderInput orderInput) {
         String mutation = String.format(CREATE_ORDER, orderInput.getProductId(), orderInput.getCount());
-
         return graphQlClient.document(mutation)
                 .retrieve("createOrder.id")
-                .toEntity(Integer.class)
+                .toEntity(String.class)
                 .block();
     }
 }

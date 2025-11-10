@@ -51,6 +51,7 @@ class ContractTestsUsingTestContainer {
         private val testContainer: GenericContainer<*> =
             GenericContainer("specmatic/specmatic")
                 .withCommand("test", "--host=$APPLICATION_HOST", "--port=$APPLICATION_PORT")
+                .withEnv("SPECMATIC_GENERATIVE_TESTS", "true")
                 .withFileSystemBind(
                     "./specmatic.yml",
                     "/usr/src/app/specmatic.yml",

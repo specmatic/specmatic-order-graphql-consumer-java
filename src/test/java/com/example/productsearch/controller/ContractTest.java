@@ -20,6 +20,7 @@ public class ContractTest implements SpecmaticContractTest {
         System.out.println("Testing using Specmatic GraphQL " + VersionInfo.INSTANCE.describe());
         System.setProperty("host", APPLICATION_HOST);
         System.setProperty("port", APPLICATION_PORT);
+        System.setProperty("SPECMATIC_GENERATIVE_TESTS", "true");
 
         ArrayList<String> examplesDirectoryList = new ArrayList<>() {{
             add("src/test/resources/specmatic/graphql/examples");

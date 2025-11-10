@@ -4,6 +4,6 @@ contracts:
       branch: main
       url: https://github.com/specmatic/specmatic-order-contracts.git
     provides:
-      - io/specmatic/examples/store/openapi/graphql_consumer_api_v1.yaml
+      - io/specmatic/examples/store/openapi/graphql_consumer_api_v2.yaml
     consumes:
       - io/specmatic/examples/store/graphql/products_bff.graphqls
