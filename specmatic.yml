@@ -7,3 +7,6 @@ contracts:
       - io/specmatic/examples/store/openapi/graphql_consumer_api_v2.yaml
     consumes:
       - io/specmatic/examples/store/graphql/products_bff.graphqls
+report:
+  formatters:
+    - type: ctrf
