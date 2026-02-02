@@ -25,7 +25,7 @@ class ContractTestsUsingTestContainer {
             GenericContainer("specmatic/enterprise")
                 .withCommand("mock")
                 .withFileSystemBind("./src", "/usr/src/app/src", BindMode.READ_ONLY)
-                .withFileSystemBind("./specmatic.yaml", "/usr/src/app/specmatic.yaml", BindMode.READ_ONLY,)
+                .withFileSystemBind("./specmatic.yml", "/usr/src/app/specmatic.yml", BindMode.READ_ONLY,)
                 .withNetworkMode("host")
                 .waitingFor(Wait.forHttp("/actuator/health").forStatusCode(200))
                 .withLogConsumer { print(it.utf8String) }
@@ -34,7 +34,7 @@ class ContractTestsUsingTestContainer {
             GenericContainer("specmatic/enterprise")
                 .withCommand("test")
                 .withFileSystemBind("./src", "/usr/src/app/src", BindMode.READ_ONLY)
-                .withFileSystemBind("./specmatic.yaml", "/usr/src/app/specmatic.yaml", BindMode.READ_ONLY,)
+                .withFileSystemBind("./specmatic.yml", "/usr/src/app/specmatic.yml", BindMode.READ_ONLY,)
                 .withNetworkMode("host")
                 .waitingFor(Wait.forLogMessage(".*Tests run:.*", 1))
                 .withLogConsumer { print(it.utf8String) }
