@@ -49,12 +49,12 @@ gradlew test
 - On Unix and Windows Powershell:
 
 ```shell
-docker run --rm -p 8080:8080 -v "$(pwd)/specmatic.yml:/usr/src/app/specmatic.yml"  -v "$(pwd)/src/test/resources/specmatic/graphql/examples:/usr/src/app/examples" specmatic/specmatic-graphql virtualize --port=8080 --examples=examples
+docker run --rm --network host -v "$(pwd):/usr/src/app" specmatic/enterprise mock
 ```
 
 - On Windows CMD Prompt:
 ```shell
-docker run --rm -p 8080:8080 -v "%cd%/specmatic.yml:/usr/src/app/specmatic.yml" -v "%cd%/src/test/resources/specmatic/graphql/examples:/usr/src/app/examples" specmatic/specmatic-graphql virtualize --port=8080 --examples=examples
+docker run --rm --network host -v "%cd%:/usr/src/app" specmatic/enterprise mock
 ```
 
 #### 2. Build and run the BFF service (System Under Test) using Gradle
@@ -76,11 +76,11 @@ gradlew bootRun
 - On Unix and Windows Powershell:
 
 ```shell
-docker run --rm --network host -v "$(pwd)/specmatic.yml:/usr/src/app/specmatic.yml" -v "$(pwd)/build/reports/specmatic:/usr/src/app/build/reports/specmatic" specmatic/specmatic test --port=8070
+docker run --rm --network host -v "$(pwd):/usr/src/app" specmatic/enterprise test
 ```
 
 - On Windows CMD Prompt:
 
 ```shell
-docker run --rm --network host -v "%cd%/specmatic.yml:/usr/src/app/specmatic.yml" -v "%cd%/build/reports/specmatic:/usr/src/app/build/reports/specmatic" specmatic/specmatic test --port=8070
+docker run --rm --network host -v "%cd%:/usr/src/app" specmatic/enterprise test
 ```
