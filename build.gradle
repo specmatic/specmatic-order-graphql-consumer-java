@@ -10,13 +10,6 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
 repositories {
-    maven {
-        name = "sonatypeSnapshots"
-        url = uri("https://central.sonatype.com/repository/maven-snapshots")
-        mavenContent {
-            snapshotsOnly()
-        }
-    }
     mavenLocal()
     mavenCentral()
 }
