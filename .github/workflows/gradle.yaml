@@ -29,7 +29,7 @@ jobs:
         os: [ ubuntu-latest ]
     runs-on: ${{ matrix.os }}
     env:
-      CTRF_REPORT_PATH: './build/reports/specmatic/graphQL/stub/ctrf/*.json'
+      CTRF_REPORT_PATH: './build/reports/specmatic/graphql/stub/ctrf/*.json'
       ENTERPRISE_VERSION: ${{ inputs.enterprise_version }}
       ENTERPRISE_ARTIFACT_URL: ${{ inputs.enterprise_artifact_url }}
     steps:
