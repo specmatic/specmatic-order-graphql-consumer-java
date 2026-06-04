@@ -55,7 +55,7 @@ jobs:
         run: |
           mkdir -p ~/.specmatic
           echo "${{ secrets.SPECMATIC_LICENSE_KEY }}" > ~/.specmatic/specmatic-license.txt
-          
+
       - name: Prepare Specmatic Enterprise artifact
         if: ${{ inputs.enterprise_artifact_url != '' && inputs.enterprise_version != '' }}
         shell: bash
@@ -97,7 +97,7 @@ jobs:
           name: ctrf-report
           path: ${{ env.CTRF_REPORT_PATH }}
           retention-days: 5
-    
+
       # Display CTRF test results
       - name: Publish Test Results
         uses: ctrf-io/github-test-reporter@v1
@@ -109,9 +109,14 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' && inputs.orchestrator_run_suffix == '' }}
         run: |
           docker run \
-            -v ${{ github.workspace }}:/workspace \
-            -v ~/.specmatic:/root/.specmatic \
-            -w /workspace \
+            --rm \
+            -e GIT_DISCOVERY_ACROSS_FILESYSTEM=1 \
+            -e GIT_CONFIG_COUNT=1 \
+            -e GIT_CONFIG_KEY_0=safe.directory \
+            -e GIT_CONFIG_VALUE_0=/usr/src/app \
+            -v "${HOME}/.specmatic:/root/.specmatic:ro" \
+            -v "${{ github.workspace }}:/usr/src/app" \
+            -w /usr/src/app \
             specmatic/enterprise \
             send-report \
             --metadata build_url=${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} \
