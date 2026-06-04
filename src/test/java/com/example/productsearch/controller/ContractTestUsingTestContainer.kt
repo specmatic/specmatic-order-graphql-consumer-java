@@ -6,10 +6,11 @@ import org.junit.jupiter.api.condition.EnabledIf
 import org.springframework.boot.test.context.SpringBootTest
 import org.testcontainers.containers.BindMode
 import org.testcontainers.containers.GenericContainer
+import org.testcontainers.containers.startupcheck.IndefiniteWaitOneShotStartupCheckStrategy
 import org.testcontainers.containers.wait.strategy.Wait
-import org.testcontainers.images.PullPolicy.alwaysPull
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
+import java.time.Duration
 
 @Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
@@ -24,31 +25,37 @@ class ContractTestsUsingTestContainer {
         @Container
         private val mockContainer: GenericContainer<*> =
             GenericContainer("specmatic/enterprise")
-                .withImagePullPolicy(alwaysPull())
                 .withCommand("mock")
                 .withFileSystemBind("./src", "/usr/src/app/src", BindMode.READ_ONLY)
                 .withFileSystemBind("./specmatic.yml", "/usr/src/app/specmatic.yml", BindMode.READ_ONLY,)
                 .withFileSystemBind("./build/reports/specmatic", "/usr/src/app/build/reports/specmatic", BindMode.READ_WRITE)
                 .withNetworkMode("host")
+                .withStartupAttempts(3)
+                .withStartupTimeout(Duration.ofMinutes(2))
                 .waitingFor(Wait.forHttp("/actuator/health").forStatusCode(200))
                 .withLogConsumer { print(it.utf8String) }
 
         private val testContainer: GenericContainer<*> =
             GenericContainer("specmatic/enterprise")
-                .withImagePullPolicy(alwaysPull())
                 .withCommand("test")
                 .withFileSystemBind("./src", "/usr/src/app/src", BindMode.READ_ONLY)
                 .withFileSystemBind("./specmatic.yml", "/usr/src/app/specmatic.yml", BindMode.READ_ONLY,)
                 .withFileSystemBind("./build/reports/specmatic", "/usr/src/app/build/reports/specmatic", BindMode.READ_WRITE)
                 .withNetworkMode("host")
-                .waitingFor(Wait.forLogMessage(".*Tests run:.*", 1))
+                .dependsOn(mockContainer)
+                .withStartupAttempts(3)
+                .withStartupTimeout(Duration.ofMinutes(5))
+                .withStartupCheckStrategy(IndefiniteWaitOneShotStartupCheckStrategy())
                 .withLogConsumer { print(it.utf8String) }
     }
 
     @Test
     fun specmaticContractTest() {
         testContainer.start()
-        val hasSucceeded = testContainer.logs.contains("Failures: 0")
-        assertThat(hasSucceeded).isTrue()
+        val exitCode = testContainer.containerInfo.state.exitCodeLong
+
+        assertThat(exitCode)
+            .withFailMessage("Specmatic contract test container failed.\nLogs:\n%s", testContainer.logs)
+            .isZero()
     }
 }
