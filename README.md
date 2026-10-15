@@ -2,6 +2,8 @@
 
 # GraphQL Service Virtualization Using Specmatic GraphQL
 
+The service exposes its Actuator health endpoint at `/actuator/health` for readiness checks.
+
 * [Specmatic Website](https://specmatic.io)
 * [Specmatic Documentation](https://docs.specmatic.io)
 
